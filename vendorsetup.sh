@@ -1,7 +1,7 @@
 #
 #	This file is part of the OrangeFox Recovery Project
 # 	Copyright (C) 2019-2022 The OrangeFox Recovery Project
-#	
+#
 #	OrangeFox is free software: you can redistribute it and/or modify
 #	it under the terms of the GNU General Public License as published by
 #	the Free Software Foundation, either version 3 of the License, or
@@ -14,14 +14,14 @@
 #
 # 	This software is released under GPL version 3 or any later version.
 #	See <http://www.gnu.org/licenses/>.
-# 	
+#
 # 	Please maintain this if you use this script or any part of it
 #
 FDEVICE="raphael"
 
 fox_get_target_device() {
 local chkdev=$(echo "$BASH_SOURCE" | grep -w \"$FDEVICE\")
-   if [ -n "$chkdev" ]; then 
+   if [ -n "$chkdev" ]; then
       FOX_BUILD_DEVICE="$FDEVICE"
    else
       chkdev=$(set | grep BASH_ARGV | grep -w \"$FDEVICE\")
@@ -59,8 +59,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_XZ_UTILS=1
 	export FOX_REPLACE_BUSYBOX_PS=1
 	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP=1
-    export OF_USE_SYSTEM_FINGERPRINT=1
-   	export FOX_BUGGED_AOSP_ARB_WORKAROUND="1510672800"; # Tue Nov 14 15:20:00 GMT 2017
+	export OF_USE_SYSTEM_FINGERPRINT=1
+	export FOX_BUGGED_AOSP_ARB_WORKAROUND="1510672800"; # Tue Nov 14 15:20:00 GMT 2017
 
     # OTA for custom ROMs
     export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
@@ -74,10 +74,10 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     # -- end R11 settings --
 
     # Maintainer Stuff
-    export OF_MAINTAINER="Pranav Talmale"
-    export FOX_VERSION="R11.1_0"
+    export OF_MAINTAINER="pwnrazr"
+    export FOX_VERSION="R12.1_0"
 
-    # run a process after formatting data to recreate /data/media/0 
+    # run a process after formatting data to recreate /data/media/0
     export OF_FORCE_CREATE_DATA_MEDIA_ON_FORMAT=1
 
     # ensure that /sdcard is bind-unmounted before f2fs data repair or format
