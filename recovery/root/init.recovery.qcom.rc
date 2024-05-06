@@ -27,10 +27,18 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+on init
+    write /sys/class/backlight/panel0-backlight/brightness 200
+    setprop sys.usb.configfs 1
+
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-		
+
 service unified-script /system/bin/unified-script.sh
     user root
     group root
@@ -51,4 +59,3 @@ on boot
     setprop sys.usb.config adb
 	chmod 0777 /system/bin/unified-script.sh
     start unified-script
-
