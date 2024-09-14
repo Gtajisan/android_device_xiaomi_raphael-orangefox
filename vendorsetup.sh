@@ -35,7 +35,8 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-	export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
+	export TW_DEFAULT_LANGUAGE="en"
+        export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
 	export OF_STATUS_INDENT_LEFT="48"
 	export OF_STATUS_INDENT_RIGHT="48"
 	export OF_SCREEN_H=2340
